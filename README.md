@@ -15,7 +15,7 @@ For further reference, please consider the following sections:
 
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.2.2.RELEASE/maven-plugin/)
-* [Camel-Prometheus]https://brunonetid.github.io/2017/11/27/camel-prometheus-openshift.html
+* [Camel-Prometheus](https://brunonetid.github.io/2017/11/27/camel-prometheus-openshift.html)
 
 ### Guides
 The following guides illustrate how to use some features concretely:
