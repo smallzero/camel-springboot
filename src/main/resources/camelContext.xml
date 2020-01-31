@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <bean class="mamatzone.camelspringboot.HelloBean" id="helloBean">
+        <property name="say" value="Hallo MamatX "/>
+    </bean>
+    <bean
+        class="org.apache.camel.component.metrics.routepolicy.MetricsRoutePolicy" id="policy">
+        <property name="useJmx" value="true"/>
+        <property name="jmxDomain" value="helo.metrics"/>
+    </bean>
+    <camelContext id="camelContext-b080e489-6dda-4d0d-b2f6-7c3992eb1740"
+        trace="false" xmlns="http://camel.apache.org/schema/spring">
+        <route id="hello" routePolicyRef="policy">
+            <from id="_from1" uri="timer:hello?period={{timer.period}}"/>
+            <setBody id="_setBody1">
+                <method method="hello" ref="helloBean"/>
+            </setBody>
+            <log id="_log1" message="The message contains ${body}"/>
+            <to id="_to1" uri="mock:result"/>
+        </route>
+    </camelContext>
+</beans>
