@@ -1,10 +1,14 @@
 # Getting Started
 
 Runing with promentheus agent:
+```
 	java -javaagent:target/docker/camel-springboot/0.0.1-SNAPSHOT/build/maven/agent/jmx_prometheus_javaagent-0.10.jar=9779:target/docker/camel-springboot/0.0.1-SNAPSHOT/build/maven/agent/config.yml -jar target/camel-springboot-0.0.1-SNAPSHOT.jar
+```
 
 The JMX exporter will open port 9779 (default Prometheus port), and use the YAML configuration file to expose the metrics. To confirm the exporter is active, open a browser and hit the following URL:
+```
 	http://localhost:9779
+```
 
 ### Reference Documentation
 For further reference, please consider the following sections:
